@@ -1,0 +1,7 @@
+{
+  "name": "myAppTabs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

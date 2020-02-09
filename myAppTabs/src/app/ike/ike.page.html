@@ -1,0 +1,78 @@
+<ion-header>
+  <ag-toolbar titulo="Matriz de Prioridades" tema="primary"></ag-toolbar>
+</ion-header>
+
+<ion-content  forceOverscroll="false">
+  <ion-grid>
+ 
+    <ion-row class="on-align-items-cente">
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="fixed">Nova tarefa:</ion-label>
+          <ion-input [(ngModel)]="todo.value"></ion-input>
+        </ion-item>
+ 
+      </ion-col>
+ 
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Quadrant:</ion-label>
+          <ion-select [(ngModel)]="selectedQuadrant">
+            <ion-select-option value="q1">Fazer</ion-select-option>
+            <ion-select-option value="q2">Agendar</ion-select-option>
+            <ion-select-option value="q3">Delegar</ion-select-option>
+            <ion-select-option value="q4">Não fazer</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+ 
+    </ion-row>
+ 
+    <ion-button expand="block" fill="outline" (click)="addTodo()">
+      <ion-icon name="add" slot="start"></ion-icon>
+       Ad. Tarefa
+    </ion-button>
+ 
+    <ion-row class="ion-no-padding matrix">
+      <ion-col size="6" class="q1">
+        <div class="q-header">Fazer</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q1" lines="none" name="q1">
+          <ion-item *ngFor="let item of q1" [color]="item.color" expand="block"  class="ion-text-wrap">
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+ 
+      <ion-col size="6" class="q2">
+        <div class="q-header">Agendar</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q2" lines="none" name="q2">
+          <ion-item *ngFor="let item of q2" [color]="item.color" expand="block"  class="ion-text-wrap">
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+ 
+      <ion-col size="6" class="q3">
+        <div class="q-header">Delegar</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q3" lines="none" name="q3">
+          <ion-item *ngFor="let item of q3" [color]="item.color" expand="block"  class="ion-text-wrap">
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+ 
+      <ion-col size="6" class="q4">
+        <div class="q-header">Não fazer</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q4" lines="none" name="q4">
+          <ion-item *ngFor="let item of q4" [color]="item.color" expand="block"  class="ion-text-wrap">
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  <ion-row class="delete-area ion-align-items-center ion-justify-content-center">
+    <ion-icon name="trash" color="medium"></ion-icon>
+  </ion-row>
+</ion-content>
