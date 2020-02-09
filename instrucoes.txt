@@ -1,0 +1,4 @@
+criar componentes:
+
+ionic g component <pasta dos componentes>/<nome do componente>
+
