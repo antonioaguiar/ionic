@@ -11,29 +11,8 @@ import { ToastController } from '@ionic/angular';
 export class FlashCardComponent implements OnInit {
   flipped: boolean = false;
 
-  constructor(private dragulaService: DragulaService, private toastController: ToastController) {
+  constructor() {
     
-    this.dragulaService.drag('card')
-      .subscribe(({ name, el, source }) => {
-        el.setAttribute('color', 'danger');
-      });
-
-    this.dragulaService.removeModel('card')
-      .subscribe(({ item }) => {
-        this.toastController.create({
-          message: 'Removed: ' + item.value,
-          duration: 2000
-        }).then(toast => toast.present());
-      });
-
-    this.dragulaService.dropModel('card')
-      .subscribe(({ item }) => {
-        item['color'] = 'success';
-      });
-
-    this.dragulaService.createGroup('card', {
-      removeOnSpill: true
-    });
   }
 
 
